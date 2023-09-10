@@ -17,7 +17,7 @@ function sumZero(arr) {
     }
   }
 }
-
-console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 5])); // [-3, 3]
+console.log(sumZero([-3, -2, -1, 0, 1, 2, 3])); // [-3, 3]
+console.log(sumZero([-4, -3, -2, -1, 0, 1, 2, 5])); // [-2, 2]
 console.log(sumZero([-2, 0, 1, 3])); // undefined
 console.log(sumZero([1, 2, 3])); // undefined
