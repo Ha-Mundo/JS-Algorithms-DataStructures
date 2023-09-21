@@ -51,5 +51,28 @@ function minSubArrayLen(nums, sum) {
   return minLen === Infinity ? 0 : minLen;
 }
 
+/////////////// Other Refactored Version //////////////////
+
+function minSubArrayLen(nums, sum) {
+  let windowStart = 0;
+  let windowEnd = -1;
+  let windowSum = 0;
+  let minLen = nums.length + 1;
+
+  while (windowStart < nums.length) {
+    if (windowEnd + 1 < nums.length && windowSum < sum) {
+      windowSum += nums[++windowEnd];
+    } else {
+      windowSum -= nums[windowStart++];
+    }
+
+    if (windowSum >= sum) {
+      minLen = Math.min(minLen, windowEnd - windowStart + 1);
+    }
+  }
+
+  return minLen === nums.length + 1 ? 0 : minLen;
+}
 console.log(minSubArrayLen([1, 3, 5], 5)); //////1
+console.log(minSubArrayLen([1, 2, 3, 7], 11)); //////3
 console.log(minSubArrayLen([], 44)); /////////0
