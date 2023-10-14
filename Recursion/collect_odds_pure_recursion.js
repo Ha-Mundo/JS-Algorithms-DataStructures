@@ -10,6 +10,7 @@ function collectOddValues(arr) {
   }
 
   newArr = newArr.concat(collectOddValues(arr.slice(1)));
+
   return newArr;
 }
 
