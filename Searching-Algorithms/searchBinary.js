@@ -1,4 +1,4 @@
-////////////  Search Coding Exercise 25: Binary Search Exercise ///////////////
+//////////// Search Coding Exercise 25: Binary Search Exercise ///////////////
 
 // Write a function called binarySearch  which accepts a sorted  array and a value and returns the index at which the value exists. Otherwise, return -1.
 
@@ -8,4 +8,23 @@
 
 // Time Complexity - O(log n)
 
-function binarySearch(arr, num) {}
+let numList = [1, 3, 4, 6, 8, 9, 11, 12];
+
+function binarySearch(arr, val) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left <= right) {
+    let middle = Math.floor((left + right) / 2);
+
+    if (arr[middle] === val) return middle;
+
+    if (arr[middle] < val) left = middle + 1;
+    else right = right = middle - 1;
+  }
+
+  return -1;
+}
+
+binarySearch(numList, 8); // 4
+binarySearch(numList, 7); // -1
