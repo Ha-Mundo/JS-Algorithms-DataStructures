@@ -4,6 +4,17 @@
 
 // Time Complexity - O(n * m)
 
-function stringSearch(str, val) {}
+function naiveStringSearch(longStr, shortStr) {
+  let counter = 0;
 
-stringSearch("hojoklokoklok", "lok"); // 2
+  for (let i = 0; i < longStr.length; i++) {
+    for (let j = 0; j < shortStr.length; j++) {
+      if (longStr[i + j] !== shortStr[j]) break;
+      if (j === shortStr.length - 1) counter++;
+    }
+  }
+
+  return counter;
+}
+
+console.log(naiveStringSearch("ololazlol", "lol")); // 2
