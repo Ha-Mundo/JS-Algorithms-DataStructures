@@ -1,5 +1,6 @@
 /////////   Bubble Sort: Implementation //////////
 
+// Time Complexity O(n^2)
 function bubbleSort(arr) {
   let swaps;
 
