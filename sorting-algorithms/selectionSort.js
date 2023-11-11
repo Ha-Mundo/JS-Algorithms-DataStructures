@@ -1,4 +1,4 @@
-////////////// Selection Sort> Implementation /////////////////
+////////////// Selection Sort: Implementation /////////////////
 
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -15,6 +15,21 @@ function selectionSort(arr) {
     }
   }
 
+  return arr;
+}
+
+////////////// ES6 syntax with swap function //////////////////////
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let lowestNumIndex = i;
+
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[lowestNumIndex]) lowestNumIndex = j;
+    }
+
+    if (lowestNumIndex !== i)
+      [arr[i], arr[lowestNumIndex]] = [arr[lowestNumIndex], arr[i]];
+  }
   return arr;
 }
 
