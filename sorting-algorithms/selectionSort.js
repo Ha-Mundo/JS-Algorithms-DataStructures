@@ -1,5 +1,6 @@
 ////////////// Selection Sort: Implementation /////////////////
 
+// Time Complexity O(n^2)
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
     let lowestNumIndex = i;
