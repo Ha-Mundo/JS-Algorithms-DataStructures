@@ -9,6 +9,30 @@ Merging Arrays Pseudocode:
 - Once we exhaust one array, push in all remaining values from the other array 
 */
 
-function merge(left, right) {}
+// Merges two already sorted arrays without modify passed parameters
+function merge(leftArr, rightArr){
+    let resultArr = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+    
+    while(leftIndex < leftArr.length && rightIndex < rightArr.length){
+        if(rightArr[rightIndex] > leftArr[leftIndex]){
+            resultArr.push(leftArr[leftIndex]);
+            leftIndex++;
+        } else {
+            resultArr.push(rightArr[rightIndex])
+            rightIndex++;
+        }
+    }
+    while(leftIndex < leftArr.length) {
+        resultArr.push(leftArr[leftIndex])
+        leftIndex++;
+    }
+    while(rightIndex < rightArr.length) {
+        resultArr.push(rightArr[rightIndex])
+        rightIndex++;
+    }
+    return resultArr;
+}
 
-merge([24,10,76,73]) // [10, 24, 73, 76]
+merge([100,200], [1, 2, 3, 5, 6]); // [1, 2, 3, 5, 6, 100, 200]
