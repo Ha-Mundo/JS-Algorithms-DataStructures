@@ -16,7 +16,7 @@ function merge(leftArr, rightArr){
     let rightIndex = 0;
     
     while(leftIndex < leftArr.length && rightIndex < rightArr.length){
-        if(rightArr[rightIndex] > leftArr[leftIndex]){
+        if(leftArr[leftIndex] < rightArr[rightIndex]){
             resultArr.push(leftArr[leftIndex]);
             leftIndex++;
         } else {
