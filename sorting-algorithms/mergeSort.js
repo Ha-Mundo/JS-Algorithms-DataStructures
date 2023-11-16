@@ -44,6 +44,7 @@ mergeSort Pseudocode:
 -Once the array has been merged back together, return the merged (and sorted!) array
 */
 
+// Time Complexity O(n * log(n))
 function mergeSort(arr) {
     if(arr.length <= 1) return arr
     
