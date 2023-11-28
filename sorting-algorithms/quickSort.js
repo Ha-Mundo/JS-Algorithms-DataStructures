@@ -1,5 +1,7 @@
 //////////////  Quick Sort Implementation  ///////////////
 
+// Time Complexity - Average/Best Cases --> O(n log n) 
+// Time Complexity - Worst Cases --> O(n^2) 
 function quickSort(arr) {
     if ( arr.length <= 1) return arr // Base Case 
 
