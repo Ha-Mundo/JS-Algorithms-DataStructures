@@ -1,3 +1,6 @@
+// Piece of data -> val
+// Reference to next node -> next
+
 class Node {
     constructor() {
         this.val = val;
