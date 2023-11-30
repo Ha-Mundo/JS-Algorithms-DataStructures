@@ -2,7 +2,7 @@
 // Reference to next node -> next
 
 class Node {
-    constructor() {
+    constructor(val) {
         this.val = val;
         this.next = null
     }
@@ -14,4 +14,24 @@ class SinglyLinkedList {
         this.tail = null;
         this.length = 0;
     }
+
+    push(val){
+        const newNode = new Node(val)
+
+        if(!this.head) this.head = newNode
+        else this.tail.next = newNode
+
+        this.tail = newNode 
+        this.length++
+
+        return this
+        
+    }
 }
+
+let list = new SinglyLinkedList()
+list.push('How')
+list.push('are')
+list.push('you?')
+console.log(list);
+
