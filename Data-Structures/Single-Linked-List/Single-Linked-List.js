@@ -25,7 +25,6 @@ class SinglyLinkedList {
         this.length++;
 
         return this;
-        
     }
 
     pop() {
@@ -41,12 +40,27 @@ class SinglyLinkedList {
         this.tail = newtTail;
         this.tail.next = null;
         this.length--;
+
         if(this.length === 0) {
             this.head = null;
             this.tail = null;
         }
+        
         return current;
     }
+
+    shift() {
+        if(!this.head) return undefined;
+
+        let currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+
+        if(this.length === 0) this.tail = null;
+
+        return currentHead;
+    }
+
 }
 
 let list = new SinglyLinkedList();
@@ -54,11 +68,11 @@ list.push('How');
 list.push('are');
 list.push('you?');
 console.log(list);
-list.pop()
+/* list.pop()
 console.log(list);
 list.pop()
 console.log(list);
 list.pop()
 console.log(list);
-console.log(list.pop());
+console.log(list.pop()); */
 
