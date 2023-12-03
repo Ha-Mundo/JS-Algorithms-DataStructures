@@ -77,18 +77,26 @@ class SinglyLinkedList {
         return this;
     }
 
+    get(index) {
+        if(index < 0 || index >= this.length) return null;
+
+        let current = this.head;
+        let counter  = 0;
+
+        while(counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+
 }
 
 let list = new SinglyLinkedList();
 list.push('How');
 list.push('are');
 list.push('you?');
-console.log(list);
-/* list.pop()
-console.log(list);
-list.pop()
-console.log(list);
-list.pop()
-console.log(list);
-console.log(list.pop()); */
+list.push(':)');
+console.log(list.get(3));
+
 
