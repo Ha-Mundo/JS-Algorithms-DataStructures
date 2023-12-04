@@ -2,9 +2,9 @@
 // Reference to next node -> next
 
 class Node {
-    constructor(val) {
+    constructor(val, next = null) {
         this.val = val;
-        this.next = null;
+        this.next = next;
     }
 }
 
