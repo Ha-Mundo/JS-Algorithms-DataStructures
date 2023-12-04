@@ -115,6 +115,23 @@ class SinglyLinkedList {
         return true;
     }
 
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+    
+        const prevNode = this.get(index - 1);
+    
+        if (!prevNode) return undefined;
+    
+        const removedNode = prevNode.next;
+        prevNode.next = removedNode.next;
+        removedNode.next = null;
+        this.length--;
+    
+        return removedNode;
+      }
+
 }
 
 let list = new SinglyLinkedList();
