@@ -62,18 +62,11 @@ class SinglyLinkedList {
     }
 
     unshift(val) {
-        const newNode = new Node(val);
-
-        if((!this.head )) {
-            this.head = newNode;
-            this.tail = this.head;
-        }else {
-            newNode.next = this.head;
-            this.head = newNode;
-        }
-
+        this.head = new Node(val, this.head);
+    
+        if (!this.length) this.tail = this.head;
         this.length++;
-
+    
         return this;
     }
 
@@ -139,6 +132,6 @@ list.push('How');
 list.push('are');
 list.push('you?');
 list.push(':)');
-console.log(list.get(3));
+console.log(list);
 
 
