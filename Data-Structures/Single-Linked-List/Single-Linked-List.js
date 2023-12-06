@@ -139,8 +139,18 @@ class SinglyLinkedList {
           prev = current;
           current = next; 
         }
-        
+
         return this;
+      }
+
+      print() {
+        let arr = [];
+        let current = this.head;
+        while (current) {
+          arr.push(current.val);
+          current = current.next;
+        }
+        console.log(arr);
       }
 
 }
@@ -150,6 +160,7 @@ list.push('How');
 list.push('are');
 list.push('you?');
 list.push(':)');
-console.log(list);
+console.log(list.reverse());
+list.print();
 
 
