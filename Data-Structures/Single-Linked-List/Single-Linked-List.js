@@ -1,10 +1,23 @@
-// Piece of data -> val
-// Reference to next node -> next
+/////////////////////// Single Linked List //////////////////////////
+
+/* 
+- Data structure that contains a head, tail and length property
+- Consists of nodes, and each node has a value and a point to another node or null
+- Do not have indices, connected via nodes with a next pointer
+- Random access is not allowed
+
+Insertion: O(1)
+Removal: O(1) or O(n)
+Searching: O(n)
+Access: O(n)
+*/
+
+
 
 class Node {
     constructor(val, next = null) {
-        this.val = val;
-        this.next = next;
+        this.val = val; // Piece of data -> val
+        this.next = next; // Reference to next node -> next
     }
 }
 
@@ -156,11 +169,25 @@ class SinglyLinkedList {
 }
 
 let list = new SinglyLinkedList();
-list.push('How');
-list.push('are');
-list.push('you?');
-list.push(':)');
-console.log(list.reverse());
-list.print();
+
+list.push(1).push(2).push(30).push(4).push(5);
+list.print(); // [ 1, 2, 30, 4, 5 ]
+list.pop();
+list.print(); // [ 1, 2, 30, 4 ]
+list.unshift(0);
+list.print(); // [ 0, 1, 2, 30, 4 ]
+list.shift();
+list.print(); // [ 1, 2, 30, 4 ]
+console.log(list.get(2).val); // 30
+list.set(2, 3);
+console.log(list.get(2).val); // 3
+list.insert(3, 10000);
+list.print(); // [ 1, 2, 3, 10000, 4, ]
+list.remove(3);
+list.print(); // [ 1, 2, 3, 4 ]
+list.reverse();
+list.print(); // [ 4, 3, 2, 1 ]
+
+
 
 
