@@ -125,6 +125,24 @@ class SinglyLinkedList {
         return removedNode;
       }
 
+      reverse() {
+        let current = this.head;
+        this.head = this.tail;
+        this.tail = current;
+
+        let prev = null
+        let next;
+
+          for (let i = 0; i < this.length; i++) {
+          next = current.next; 
+          current.next = prev; 
+          prev = current;
+          current = next; 
+        }
+        
+        return this;
+      }
+
 }
 
 let list = new SinglyLinkedList();
