@@ -156,14 +156,21 @@ class SinglyLinkedList {
         return this;
       }
 
-      print() {
+      iterate(cb = null) {
         let arr = [];
-        let current = this.head;
-        while (current) {
-          arr.push(current.val);
-          current = current.next;
+        let currentNode = this.head;
+    
+        while (currentNode) {
+          if (typeof cb === 'function') arr.push(cb(currentNode.val));
+          else arr.push(currentNode.val); 
+          currentNode = currentNode.next;
         }
-        console.log(arr);
+    
+        return arr;
+      }
+
+      print() {
+        console.log(this.iterate());
       }
 
 }
