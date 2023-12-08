@@ -42,6 +42,22 @@ class Node {
       return currentTail
   }
 
+  shift() {
+    if(this.length === 0) return undefined
+    let currentHead = this.head
+
+    if(this.length === 1) {
+        this.head = null
+        this.tail = null
+    } else {
+        this.head = currentHead.next
+        this.head.prev = null
+        currentHead.next = null
+    }
+    this.length--
+    return currentHead
+}
+
 }
 
 let list = new DoublyLinkedList()
