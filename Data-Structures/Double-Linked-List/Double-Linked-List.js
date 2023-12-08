@@ -27,40 +27,55 @@ class Node {
     }
 
     pop() {
-      if(!this.head) return undefined
-      let currentTail = this.tail
+      if(!this.head) return undefined;
+      let currentTail = this.tail;
       
       if(this.length === 1) {
-          this.head = null
-          this.tail = null
+          this.head = null;
+          this.tail = null;
       } else {
-          this.tail = currentTail.prev
-          this.tail.next = null
-          currentTail.prev = null 
+          this.tail = currentTail.prev;
+          this.tail.next = null;
+          currentTail.prev = null; 
       }
-      this.length--
-      return currentTail
+      this.length--;
+      return currentTail;
   }
 
   shift() {
-    if(this.length === 0) return undefined
-    let currentHead = this.head
+    if(this.length === 0) return undefined;
+    let currentHead = this.head;
 
     if(this.length === 1) {
-        this.head = null
-        this.tail = null
+        this.head = null;
+        this.tail = null;
     } else {
-        this.head = currentHead.next
-        this.head.prev = null
-        currentHead.next = null
+        this.head = currentHead.next;
+        this.head.prev = null;
+        currentHead.next = null;
     }
-    this.length--
-    return currentHead
+    this.length--;
+    return currentHead;
+}
+
+unshift(val) {
+  let newNode = new Node(val, this.head);
+  console.log(newNode);
+  
+  if(this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+  } else {
+      this.head.prev = newNode;
+      this.head = newNode;
+  }
+  this.length++;
+
+  return this;
 }
 
 }
 
-let list = new DoublyLinkedList()
-list.push(1).push(2).push(3)
-console.log(list.pop());
+let list = new DoublyLinkedList();
+list.unshift(3).unshift(2).unshift(1);
 console.log(list);
