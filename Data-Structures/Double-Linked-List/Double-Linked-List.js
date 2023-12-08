@@ -14,17 +14,16 @@ class Node {
     }
 
     push(val) {
-        let newNode = new Node(val)
+        let newNode = new Node(val, null, this.tail);
         if(this.length === 0){
-            this.head = newNode
-            this.tail = newNode
+            this.head = newNode;
         } else {
-            this.tail.next = newNode 
-            newNode.prev = this.tail
-            this.tail = newNode
+            this.tail.next = newNode; 
         }
-        this.length++
-        return this
+
+        this.tail = newNode;
+        this.length++;
+        return this;
     }
 
 }
