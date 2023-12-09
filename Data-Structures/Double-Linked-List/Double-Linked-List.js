@@ -95,6 +95,15 @@ get(index) {
     return currentNode;
     }
 
+    set(index, val) {
+        let node = this.get(index);
+        
+        if(!node || val === undefined) return false;
+        node.val = val;
+
+        return true;
+        }
+
 }
 
 let list = new DoublyLinkedList();
