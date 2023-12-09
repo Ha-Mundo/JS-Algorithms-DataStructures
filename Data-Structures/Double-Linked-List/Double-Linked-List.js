@@ -56,23 +56,44 @@ class Node {
     }
     this.length--;
     return currentHead;
-}
+    }
 
-unshift(val) {
-  let newNode = new Node(val, this.head);
-  console.log(newNode);
-  
-  if(this.length === 0) {
-      this.head = newNode;
-      this.tail = newNode;
-  } else {
-      this.head.prev = newNode;
-      this.head = newNode;
-  }
-  this.length++;
+    unshift(val) {
+    let newNode = new Node(val, this.head);
+    console.log(newNode);
+    
+    if(this.length === 0) {
+        this.head = newNode;
+        this.tail = newNode;
+    } else {
+        this.head.prev = newNode;
+        this.head = newNode;
+    }
+    this.length++;
 
-  return this;
-}
+    return this;
+    }
+
+get(index) {
+    if(index < 0 || index > this.length - 1 || index === undefined) return null;
+    
+    let middle = Math.floor(this.length / 2);
+    let currentNode;
+    
+    if(index <= middle) {
+        currentNode = this.head;
+        for(let i = 0; i < index; i++){
+            currentNode = currentNode.next;
+        }
+    } else {
+        currentNode = this.tail;
+        for(let i = this.length - 1; i > index; i--) {
+            currentNode = currentNode.prev;
+        }
+    }
+
+    return currentNode;
+    }
 
 }
 
