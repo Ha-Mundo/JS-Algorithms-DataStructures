@@ -104,8 +104,27 @@ get(index) {
         return true;
         }
 
+        insert(index, val) {
+            if(index < 0 || index > this.length || val === undefined) return false;
+            if(index === 0) return !!this.unshift(val);
+            if(index === this.length) return !!this.push(val);
+
+            let prevNode = this.get(index - 1);
+            let nextNode = prevNode.next;
+
+            let newNode = new Node(val, nextNode, prevNode);
+
+            prevNode.next = newNode;
+            nextNode.prev = newNode;
+            this.length++;
+
+            return true;
+
+        }
+
 }
 
-let list = new DoublyLinkedList();
-list.unshift(3).unshift(2).unshift(1);
+let list = new DoublyLinkedList()
+list.push('a').push('b').push('c').push('d').push('e')
+console.log(list.insert(3,'z')); // true
 console.log(list);
