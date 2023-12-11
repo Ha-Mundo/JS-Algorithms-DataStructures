@@ -1,3 +1,14 @@
+///////////////////////////// Double Linked Lists ///////////////////////////////
+
+/* 
+Takes more memory than a Singly Linked List but provides more flexibility
+
+Insertion: O(1)
+Removal: O(1)
+Searching: O(n)
+Access: O(n) 
+*/
+
 class Node {
     constructor(val, next = null, prev = null) {
       this.val = val;
@@ -60,7 +71,6 @@ class DoublyLinkedList {
 
     unshift(val) {
         let newNode = new Node(val, this.head);
-        console.log(newNode);
         
         if(this.length === 0) {
             this.head = newNode;
@@ -165,10 +175,26 @@ class DoublyLinkedList {
         }
     
         console.log(arr);
-      }
+    }
 
 }
 
 let list = new DoublyLinkedList()
-list.push('a').push('b').push('c').push('d').push('e')
-console.log(list);
+
+list.push(1).push(2).push(30).push(4).push(5);
+list.print(); // [ 1, 2, 30, 4, 5 ]
+list.pop();
+list.print(); // [ 1, 2, 30, 4 ]
+list.unshift(0);
+list.print(); // [ 0, 1, 2, 30, 4 ]
+list.shift();
+list.print(); // [ 1, 2, 30, 4 ]
+console.log(list.get(2).val); // 30
+list.set(2, 3);
+console.log(list.get(2).val); // 3
+list.insert(3, 10000);
+list.print(); // [ 1, 2, 3, 10000, 4, ]
+list.remove(3);
+list.print(); // [ 1, 2, 3, 4 ]
+list.reverse();
+list.print(); // [ 4, 3, 2, 1 ]
