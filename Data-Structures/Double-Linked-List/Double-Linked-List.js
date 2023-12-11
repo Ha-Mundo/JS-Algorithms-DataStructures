@@ -155,6 +155,18 @@ class DoublyLinkedList {
         return this;
     }
 
+    print() {
+        const arr = [];
+        let currentNode = this.head;
+    
+        while (currentNode) {
+          arr.push(currentNode.val);
+          currentNode = currentNode.next;
+        }
+    
+        console.log(arr);
+      }
+
 }
 
 let list = new DoublyLinkedList()
