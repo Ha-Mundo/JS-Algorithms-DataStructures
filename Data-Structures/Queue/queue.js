@@ -1,3 +1,21 @@
+/*//////////////////////////////// Queues ////////////////////////////////////////////////
+
+Abstract data structure of a collection of data that abides by FIFO (First In - First Out)
+
+Enqueue: This function adds the value to the end of the queue and return the new size of the queue.
+
+Dequeue: This function removes the value at the beginning of the queue and return the value removed.
+
+- Background tasks
+- Uploading resources
+- Printing / Task processing
+
+Insertion: O(1)
+Removal: O(1)
+Searching: O(n)
+Access: O(n) 
+*/
+
 class Node {
     constructor(val, next = null) {
       this.val = val;
