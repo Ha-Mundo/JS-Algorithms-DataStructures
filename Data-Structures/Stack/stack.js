@@ -11,4 +11,14 @@ class Node {
       this.last = null;
       this.size = 0;
     }
+
+    push(val) {
+        this.first = new Node(val, this.first);
+    
+        if (!this.size) this.last = this.first;
+        this.size++;
+    
+        return this.size;
+      }
+    
 }
