@@ -35,5 +35,20 @@ class Queue {
 
         return removedNode.val;
     }
-    
+
 }
+
+let queue = new Queue()
+
+console.log(queue.enqueue(1)); // 1
+console.log(queue.size); // 1
+console.log(queue.enqueue(2)); // 2
+console.log(queue.size); // 2
+console.log(queue.enqueue(3)); // 3
+console.log(queue.size); // 3
+console.log(queue.dequeue()); // 1
+queue.dequeue();
+console.log(queue.size); // 1
+queue.dequeue();
+console.log(queue.dequeue()); // null
+console.log(queue.size); // 0
