@@ -2,9 +2,9 @@
 
 Abstract data structure of a collection of data that abides by FIFO (First In - First Out)
 
-Enqueue: This function adds the value to the end of the queue and return the new size of the queue.
+Enqueue method adds the value to the end of the queue and return the new size of the queue.
 
-Dequeue: This function removes the value at the beginning of the queue and return the value removed.
+Dequeue method removes the value at the beginning of the queue and return the value removed.
 
 - Background tasks
 - Uploading resources
