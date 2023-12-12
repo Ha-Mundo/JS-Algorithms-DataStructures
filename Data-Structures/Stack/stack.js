@@ -20,5 +20,17 @@ class Node {
     
         return this.size;
       }
+
+    pop() {
+    if (!this.first) return null;
+
+    const removedNode = this.first;
+    this.first = removedNode.next;
+    this.size--;
+
+    if (!this.size) this.last = null;
+
+    return removedNode.data;
+      }
     
 }
