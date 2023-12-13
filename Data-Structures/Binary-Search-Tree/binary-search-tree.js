@@ -39,6 +39,19 @@ class Node {
             }
         }
     }
+
+    find(val) {
+        let currentNode = this.root
+        
+        while (currentNode) {
+            if (val === currentNode.val) return currentNode;
+      
+            if (val < currentNode.val) currentNode = currentNode.left;
+            else currentNode = currentNode.right;
+          }
+      
+        return null
+    }
 }
 
 let tree = new BinarySearchTree()
@@ -51,3 +64,4 @@ tree.insert(7)
 tree.insert(11)
 tree.insert(16)
 console.log(tree);
+console.log(tree.find(13));
