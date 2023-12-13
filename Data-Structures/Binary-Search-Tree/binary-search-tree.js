@@ -1,3 +1,13 @@
+/* ////////////// Binary Search Trees /////////////////
+- Every parent node has at most two children
+- Every node to the left of the parent node is always less than the parent
+- Every node to the right of the parent node is always greater than the parent
+
+Insertion: O(log n)
+Removal: O(1)
+Searching: O(log n)
+Access: O(n) */
+
 class Node {
     constructor(val) {
       this.val = val;
