@@ -52,6 +52,10 @@ class Node {
       
         return null
     }
+
+    contains(val) {
+        return !!this.find(val);
+      }
 }
 
 let tree = new BinarySearchTree()
@@ -65,3 +69,4 @@ tree.insert(11)
 tree.insert(16)
 console.log(tree);
 console.log(tree.find(13));
+console.log(tree.contains(13));
