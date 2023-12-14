@@ -69,33 +69,49 @@ class Node {
     }
 
     breadthFirstSearch(node = this.root) {
-        if(!node) return null
+        if(!node) return null;
 
-        let data = []
-        let queue = []
-        queue.push(node)
+        let data = [];
+        let queue = [];
+        queue.push(node);
         
         while(queue.length) {
-            node = queue.shift()
-            if(node.left) queue.push(node.left)
-            if(node.right) queue.push(node.right)
-            data.push(node.val)
+            node = queue.shift();
+            if(node.left) queue.push(node.left);
+            if(node.right) queue.push(node.right);
+            data.push(node.val);
         
         }
-        return data
+        return data;
+    }
+
+    depthFirstSearchPreOrder(currentNode = this.root) {
+        let data = [];
+
+        function traverse(node) {
+            data.push(node.val);
+
+            if(node.left) traverse(node.left);
+            if(node.right) traverse(node.right);
+        }
+
+     traverse(currentNode);
+     return data;
     }
 }
 
 let tree = new BinarySearchTree()
 
-tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(2)
-tree.insert(7)
-tree.insert(11)
-tree.insert(16)
+tree.insert(10)       
+tree.insert(6)       
+tree.insert(15)     
+tree.insert(3)
+tree.insert(8)
+tree.insert(20)
+
+
 console.log(tree);
 console.log(tree.find(13));
 console.log(tree.contains(13));
 console.log(tree.breadthFirstSearch());
+console.log(tree.depthFirstSearchPreOrder());
