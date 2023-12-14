@@ -1,13 +1,4 @@
-/* ////////////// Binary Search Trees /////////////////
-- Every parent node has at most two children
-- Every node to the left of the parent node is always less than the parent
-- Every node to the right of the parent node is always greater than the parent
-
-Insertion: O(log n)
-Removal: O(1)
-Searching: O(log n)
-Access: O(n) 
-*/
+/////////////// Binary Search Trees /////////////////
 
 class Node {
     constructor(val) {
@@ -23,36 +14,36 @@ class Node {
     }
 
     insert(val) {
-        let newNode = new Node(val)
+        let newNode = new Node(val);
 
         if(!this.root) {
-            this.root = newNode
-            return this
+            this.root = newNode;
+            return this;
         } 
-        let currentNode = this.root
+        let currentNode = this.root;
 
         while(true) {
-            if(val === currentNode.val) return undefined
+            if(val === currentNode.val) return undefined;
             if(val < currentNode.val) {
                 if(!currentNode.left) {
-                    currentNode.left = newNode
-                    return this
+                    currentNode.left = newNode;
+                    return this;
                 }
-                currentNode = currentNode.left
+                currentNode = currentNode.left;
             } else {
                 if(val > currentNode.val) {
                     if(!currentNode.right){
-                        currentNode.right = newNode
-                        return this
+                        currentNode.right = newNode;
+                        return this;
                     }
-                    currentNode = currentNode.right
+                    currentNode = currentNode.right;
                 }
             }
         }
     }
 
     find(val) {
-        let currentNode = this.root
+        let currentNode = this.root;
         
         while (currentNode) {
             if (val === currentNode.val) return currentNode;
@@ -61,7 +52,7 @@ class Node {
             else currentNode = currentNode.right;
           }
       
-        return null
+        return null;
     }
 
     contains(val) {
@@ -113,16 +104,16 @@ class Node {
     }
 
     depthFirstSearchInOrder(currentNode = this.root) {
-        let data = []
+        let data = [];
 
         function traverse(node) {
-            if(node.left) traverse(node.left)
-            data.push(node.val)
-            if(node.right) traverse(node.right)
+            if(node.left) traverse(node.left);
+            data.push(node.val);
+            if(node.right) traverse(node.right);
         }
 
-        traverse(currentNode)
-        return data
+        traverse(currentNode);
+        return data;
     }
 }
 
@@ -136,10 +127,12 @@ tree.insert(8)
 tree.insert(20)
 
 
-console.log(tree);
-console.log(tree.find(13));
-console.log(tree.contains(13));
-console.log(tree.breadthFirstSearch());
-console.log(tree.depthFirstSearchPreOrder());
-console.log(tree.depthFirstSearchPostOrder());
-console.log(tree.depthFirstSearchInOrder());
+console.log(tree); // return the tree
+console.log(tree.find(15)); // return 15th node
+console.log(tree.find(100)); // null
+console.log(tree.contains(15)); // true
+console.log(tree.contains(100)); // false
+console.log(tree.breadthFirstSearch()); // [ 10, 6, 15, 3, 8, 20 ]
+console.log(tree.depthFirstSearchPreOrder()); // [ 10, 6, 3, 8, 15, 20 ]
+console.log(tree.depthFirstSearchPostOrder()); // [ 3, 8, 6, 20, 15, 10 ]
+console.log(tree.depthFirstSearchInOrder()); // [ 3, 6, 8, 10, 15, 20 ]
