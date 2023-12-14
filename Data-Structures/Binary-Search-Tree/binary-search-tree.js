@@ -6,7 +6,8 @@
 Insertion: O(log n)
 Removal: O(1)
 Searching: O(log n)
-Access: O(n) */
+Access: O(n) 
+*/
 
 class Node {
     constructor(val) {
@@ -65,7 +66,24 @@ class Node {
 
     contains(val) {
         return !!this.find(val);
-      }
+    }
+
+    breadthFirstSearch(node = this.root) {
+        if(!node) return null
+
+        let data = []
+        let queue = []
+        queue.push(node)
+        
+        while(queue.length) {
+            node = queue.shift()
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
+            data.push(node.val)
+        
+        }
+        return data
+    }
 }
 
 let tree = new BinarySearchTree()
@@ -80,3 +98,4 @@ tree.insert(16)
 console.log(tree);
 console.log(tree.find(13));
 console.log(tree.contains(13));
+console.log(tree.breadthFirstSearch());
