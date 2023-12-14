@@ -111,6 +111,19 @@ class Node {
         traverse(currentNode);
         return data;
     }
+
+    depthFirstSearchInOrder(currentNode = this.root) {
+        let data = []
+
+        function traverse(node) {
+            if(node.left) traverse(node.left)
+            data.push(node.val)
+            if(node.right) traverse(node.right)
+        }
+
+        traverse(currentNode)
+        return data
+    }
 }
 
 let tree = new BinarySearchTree()
@@ -129,3 +142,4 @@ console.log(tree.contains(13));
 console.log(tree.breadthFirstSearch());
 console.log(tree.depthFirstSearchPreOrder());
 console.log(tree.depthFirstSearchPostOrder());
+console.log(tree.depthFirstSearchInOrder());
