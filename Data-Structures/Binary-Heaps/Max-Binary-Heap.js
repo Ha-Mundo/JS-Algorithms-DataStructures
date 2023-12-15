@@ -8,4 +8,8 @@ class MaxBinaryHeap {
         this.bubbleUp();
         return this;
     }
+
+    getItem(index) {
+        return this.values[index];
+    }
 }
