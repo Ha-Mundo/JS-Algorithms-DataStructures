@@ -12,4 +12,8 @@ class MaxBinaryHeap {
     getItem(index) {
         return this.values[index];
     }
+
+    getParentIndex(childIndex) {
+        return Math.floor((childIndex - 1) / 2);
+      }
 }
