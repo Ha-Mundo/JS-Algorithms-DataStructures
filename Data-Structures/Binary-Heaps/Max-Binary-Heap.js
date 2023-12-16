@@ -60,7 +60,6 @@ class MaxBinaryHeap {
         let index = idx;
         let element = this.getItem(index);
        
-
         while(true){
             let leftChildIndex = this.getLeftChildIndex(index);
             let rightChildIndex = this.getRightChildIndex(index);
@@ -73,12 +72,13 @@ class MaxBinaryHeap {
                     swap = leftChildIndex;
                 }
             }
+            
             if(rightChildIndex < length) {
                rightChild = this.getItem(rightChildIndex);
                if((swap === null && rightChild > element) || (swap !== null && rightChild > leftChild)) {
                     swap = rightChildIndex;
+                }
             }
-        }
 
             if(!swap) break;
             this.values[index] = this.getItem(swap);
@@ -95,11 +95,17 @@ let heap = new MaxBinaryHeap(array)
 heap.insert(55)
 console.log(heap.values); // [ 55, 39, 41, 18, 27, 12, 33 ]
 console.log(heap.extractMax()); // 55
+console.log(heap.values); // [ 41, 39, 33, 18, 27, 12 ]
 console.log(heap.extractMax()); // 41
+console.log(heap.values); // [ 39, 27, 33, 18, 12 ]
 console.log(heap.extractMax()); // 39
+console.log(heap.values); // [ 33, 27, 12, 18 ]
 console.log(heap.extractMax()); // 33
+console.log(heap.values); // [ 27, 18, 12 ]
 console.log(heap.extractMax()); // 27
+console.log(heap.values); // [ 18, 12 ]
 console.log(heap.extractMax()); // 18
+console.log(heap.values); // [ 12 ]
 console.log(heap.extractMax()); // 12
 console.log(heap.extractMax()); // null
 console.log(heap.values);// []
