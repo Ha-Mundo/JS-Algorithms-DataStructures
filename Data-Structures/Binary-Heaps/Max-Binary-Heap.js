@@ -17,6 +17,10 @@ class MaxBinaryHeap {
         return Math.floor((childIndex - 1) / 2);
     }
 
+    getLeftChildIndex(parentIndex) {
+        return (2 * parentIndex) + 1;
+      }
+
     bubbleUp(idx = this.values.length - 1) {
     let index = idx; 
     const element = this.getItem(index);
