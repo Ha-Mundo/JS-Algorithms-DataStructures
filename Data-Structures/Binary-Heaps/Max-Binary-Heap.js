@@ -40,6 +40,21 @@ class MaxBinaryHeap {
         index = parentIndex;
         }
     }
+
+    extractMax() {
+        if (!this.values.length) return null;
+        if(this.values.length === 1) return this.values.pop();
+ 
+        const max = this.values[0];
+        const end = this.values.pop();
+
+        if(this.values.length) {
+            this.values[0] = end;
+            this.sinkDown();
+        }
+
+        return max;
+    }
 }
 
 let array = [41, 39, 33, 18, 27, 12]
