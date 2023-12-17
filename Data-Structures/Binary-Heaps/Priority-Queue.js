@@ -2,9 +2,9 @@
 
 /* 
 Implement Priority Queue with Min Binary Heap
-- Each Node has a value and a priority. 
-- Use the priority to build the heap. 
-- Higher priority is a lower number
+Each Node has a value and a priority. 
+Use the priority to build the heap. 
+Higher priority is a lower number.
 
 - Enqueue: This method accepts a value and priority, makes a new node, and puts it in the right spot based off of its priority.
 
