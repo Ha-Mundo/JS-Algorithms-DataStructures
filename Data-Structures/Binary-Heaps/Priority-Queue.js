@@ -1,6 +1,14 @@
 ////////////////////////// Priority Queue ////////////////////////
 
-// Each Node has a value and a priority.
+/* 
+Implement Priority Queue with Min Binary Heap
+- Each Node has a value and a priority.  Use the priority to build the heap.
+
+- Enqueue: This method accepts a value and priority, makes a new node, and puts it in the right spot based off of its priority.
+
+- Dequeue: This method removes root element, returns it, and rearranges heap using priority.
+*/
+
 class QueueNode {
     constructor(value, priority) {
       this.value = value;
@@ -107,8 +115,9 @@ class PriorityQueue {
 }
 
 let ER = new PriorityQueue();
+
 ER.enqueue("common cold",5)
-ER.enqueue("gunshot wound", 1)
+ER.enqueue("gunshot wound",1)
 ER.enqueue("high fever",4)
 ER.enqueue("broken arm",2)
 ER.enqueue("glass in foot",3)
