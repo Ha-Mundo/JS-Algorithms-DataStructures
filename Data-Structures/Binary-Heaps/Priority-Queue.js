@@ -98,6 +98,12 @@ class PriorityQueue {
 
         }
     }
+
+    printQueue() {
+        for (const item of this.values) {
+          console.log(`${item.value} - ${item.priority}`);
+        }
+    }
 }
 
 let ER = new PriorityQueue();
@@ -106,5 +112,7 @@ ER.enqueue("gunshot wound", 1)
 ER.enqueue("high fever",4)
 ER.enqueue("broken arm",2)
 ER.enqueue("glass in foot",3)
-console.log(ER);
+ER.printQueue(); // 'gunshot wound - 1' 'broken arm - 2' 'high fever - 4' 'common cold - 5' 'glass in foot - 3'
 console.log(ER.dequeue()); // QueueNode { value: 'gunshot wound', priority: 1 }
+ER.printQueue(); // 'broken arm - 2' 'glass in foot - 3' 'high fever - 4' 'common cold - 5'
+console.log(ER.dequeue()); // QueueNode { value: 'broken arm', priority: 2 }
