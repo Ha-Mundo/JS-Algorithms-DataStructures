@@ -39,6 +39,20 @@ class HashTable {
         return undefined;
     }
 
+    keys() {
+        const keys = [];
+    
+        for (const bucket of this.keyMap) {
+          if (bucket) {
+            for (const item of bucket) {
+              keys.push(item[0]);
+            }
+          }
+        }
+    
+        return keys;
+    }
+
     values() {
         const values = new Set();
     
@@ -51,7 +65,7 @@ class HashTable {
         }
        
         return Array.from(values);
-      }
+    }
 
 }
 
@@ -69,3 +83,4 @@ hashTable.set('coral', '#EE7F74');
 
 console.log(hashTable.get('plum')); // '#DDA0DD'
 console.log(hashTable.values());
+console.log(hashTable.keys());
