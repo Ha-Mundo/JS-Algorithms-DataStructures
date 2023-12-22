@@ -1,3 +1,7 @@
+//////////////////////// Hash Table ///////////////////////////
+
+// - The Separate Chaining procedure is used to deal with collisions with the implementation of an array.
+
 class HashTable {
     constructor (size = 53) {
         this.keyMap = new Array(size);
