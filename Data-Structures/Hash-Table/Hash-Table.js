@@ -67,6 +67,16 @@ class HashTable {
         return Array.from(values);
     }
 
+    print() {
+        for (let i = 0; i < this.keyMap.length; i++) {
+          if (this.keyMap[i]) {
+            for (const item of this.keyMap[i]) {
+              console.log(`bucket ${i}: ${item}`);
+            }
+          }
+        }
+    }
+
 }
 
 const hashTable = new HashTable(17);
@@ -82,5 +92,15 @@ hashTable.set('lightcoral', '#EE7F74');
 hashTable.set('coral', '#EE7F74');
 
 console.log(hashTable.get('plum')); // '#DDA0DD'
-console.log(hashTable.values());
-console.log(hashTable.keys());
+console.log(hashTable.values()); // [ '#DDA0DD','#FA8072','#800000','#FFFF00','#EE7F74','#808000','#F08080','#C71585' ]
+console.log(hashTable.keys()); // [ 'plum','salmon','maroon','yellow','coral','olive','lightcoral','lightcoral','mediumvioletred' ]
+hashTable.print();/*'bucket 0: plum,#DDA0DD' 
+                    'bucket 3: salmon,#FA8072' 
+                    'bucket 8: maroon,#800000' 
+                    'bucket 8: yellow,#FFFF00' 
+                    'bucket 9: coral,#EE7F74' 
+                    'bucket 10: olive,#808000' 
+                    'bucket 13: lightcoral,#F08080' 
+                    'bucket 13: lightcoral,#EE7F74' 
+                    'bucket 16: mediumvioletred,#C71585'
+                    */
