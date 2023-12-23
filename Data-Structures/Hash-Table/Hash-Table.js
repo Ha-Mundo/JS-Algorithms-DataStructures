@@ -113,6 +113,7 @@ console.log(hashTable.get('plum')); // '#DDA0DD'
 console.log(hashTable.values()); // [ '#DDA0DD','#FA8072','#800000','#FFFF00','#EE7F74','#808000','#F08080','#C71585' ]
 console.log(hashTable.keys()); // [ 'plum','salmon','maroon','yellow','coral','olive','lightcoral','lightcoral','mediumvioletred' ]
 console.log(hashTable.delete('lightcoral')); // [ 'lightcoral', '#F08080' ]
+console.log(hashtable.delete('magenta')); // null
 hashTable.print();/*'bucket 0: plum,#DDA0DD' 
                     'bucket 3: salmon,#FA8072' 
                     'bucket 8: maroon,#800000' 
