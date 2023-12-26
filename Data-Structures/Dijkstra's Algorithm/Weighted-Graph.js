@@ -40,7 +40,7 @@ class WeightedGraph {
 
         // as long as there is something to visit
         while(nodes.values.length){
-            smallest = nodes.dequeue().val;
+            smallest = nodes.dequeue().value;
 
             if(smallest === finish){
                 //WE ARE DONE

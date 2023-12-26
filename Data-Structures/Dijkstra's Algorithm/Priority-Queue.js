@@ -1,9 +1,16 @@
+class Node {
+    constructor(value, priority){
+        this.value = value;
+        this.priority = priority;
+    }
+} 
+
 class PriorityQueue {
     constructor(){
         this.values = [];
     }
-    enqueue(val, priority){
-        let newNode = new Node(val, priority);
+    enqueue(value, priority){
+        let newNode = new Node(value, priority);
         this.values.push(newNode);
         this.bubbleUp();
     }
@@ -60,12 +67,5 @@ class PriorityQueue {
         }
     }
 }
-
-class Node {
-    constructor(val, priority){
-        this.val = val;
-        this.priority = priority;
-    }
-} 
 
 module.exports = PriorityQueue
