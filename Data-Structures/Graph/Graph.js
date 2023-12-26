@@ -49,6 +49,31 @@ class Graph {
         return result;
     }
 
+    depthFirstSearchIterative(start = Object.keys(this.adjacencyList)[0]) {
+        if (!this.adjacencyList[start]) return [];
+        
+        let stack  = [];
+        let result = [];
+        let visited = {};
+
+        stack.push(start);
+        visited[start] = true;
+
+        while(stack.length) {
+            let currentVertex = stack.pop();
+            result.push(currentVertex);
+            
+            for(const linkedVertex of this.adjacencyList[currentVertex]) {
+                if(!visited[linkedVertex]) {
+                    visited[linkedVertex] = true;
+                    stack.push(linkedVertex);
+                    }
+                }
+        }
+
+        return result;
+    }
+
 }
 
 const graph = new Graph()
@@ -70,3 +95,4 @@ graph.addEdge("E","F")
 
 console.log(graph);
 console.log(graph.depthFirstSearchRecursive('A')); // [ 'A', 'B', 'D', 'E', 'C', 'F' ]
+console.log(graph.depthFirstSearchIterative('A')); // [ 'A', 'C', 'E', 'F', 'D', 'B' ]
