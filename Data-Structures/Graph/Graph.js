@@ -1,5 +1,7 @@
 ///////////////// Graph ////////////////////
 
+// Implementation of undirected - unweighted graph.
+
 class Graph {
     constructor() {
         this.adjacencyList = {};
