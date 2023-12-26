@@ -74,6 +74,30 @@ class Graph {
         return result;
     }
 
+    breadthFirstSearchIterative(start = Object.keys(this.adjacencyList)[0]) {
+        if (!this.adjacencyList[start]) return [];
+
+        let queue = [];
+        let result = [];
+        let visited = {};
+
+        queue.push(start);
+        visited[start] = true;
+
+        while(queue.length) {
+            let currentVertex = queue.shift();
+            result.push(currentVertex);
+            
+            for(const linkedVertex of this.adjacencyList[currentVertex]) {
+                if(!visited[linkedVertex]) {
+                    visited[linkedVertex] = true;
+                    queue.push(linkedVertex);
+                    }
+                }
+        }
+        return result;
+    }
+
 }
 
 const graph = new Graph()
@@ -94,5 +118,6 @@ graph.addEdge("D","F")
 graph.addEdge("E","F")
 
 console.log(graph);
-console.log(graph.depthFirstSearchRecursive('A')); // [ 'A', 'B', 'D', 'E', 'C', 'F' ]
-console.log(graph.depthFirstSearchIterative('A')); // [ 'A', 'C', 'E', 'F', 'D', 'B' ]
+console.log(graph.depthFirstSearchRecursive('A'));   // [ 'A', 'B', 'D', 'E', 'C', 'F' ]
+console.log(graph.depthFirstSearchIterative('A'));   // [ 'A', 'C', 'E', 'F', 'D', 'B' ]
+console.log(graph.breadthFirstSearchIterative('A')); // [ 'A', 'B', 'C', 'D', 'E', 'F' ]
