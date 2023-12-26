@@ -119,6 +119,16 @@ graph.addEdge("D","E")
 graph.addEdge("D","F")
 graph.addEdge("E","F")
 
+/*      
+          A
+        /   \
+       B     C
+       |     |
+       D --- E
+        \   /
+          F  
+*/
+
 console.log(graph);
 console.log(graph.depthFirstSearchRecursive('A'));   // [ 'A', 'B', 'D', 'E', 'C', 'F' ]
 console.log(graph.depthFirstSearchIterative('A'));   // [ 'A', 'C', 'E', 'F', 'D', 'B' ]
