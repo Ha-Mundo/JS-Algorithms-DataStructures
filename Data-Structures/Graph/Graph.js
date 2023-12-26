@@ -15,8 +15,8 @@ class Graph {
     }
 
     removeEdge(vertex1, vertex2) {
-     this.adjacencyList[vertex1] =  this.adjacencyList[vertex1].filter(v => v !== vertex2);
-     this.adjacencyList[vertex2] =  this.adjacencyList[vertex2].filter(v => v !== vertex1);
+        this.adjacencyList[vertex1] =  this.adjacencyList[vertex1].filter(v => v !== vertex2);
+        this.adjacencyList[vertex2] =  this.adjacencyList[vertex2].filter(v => v !== vertex1);
     }
 
     removeVertex(vertex) {
@@ -26,24 +26,47 @@ class Graph {
                 }
             delete this.adjacencyList[vertex];
             }
+    }
+
+    depthFirstSearchRecursive(start = Object.keys(this.adjacencyList)[0]) {
+        const adjacencyList = this.adjacencyList;
+        const result = [];
+        const visited = {};
+
+        function traverse(vertex) {
+            if (!adjacencyList[vertex]) return null;
+
+            result.push(vertex);
+            visited[vertex] = true;
+
+            for (const linkedVertex of adjacencyList[vertex]) {
+            if (!visited[linkedVertex]) traverse(linkedVertex);
+            }
         }
+
+        traverse(start);
+
+        return result;
+    }
 
 }
 
 const graph = new Graph()
 
-graph.addVertex('Tokyo')
-graph.addVertex('Dallas')
-graph.addVertex('Rome')
-graph.addVertex('Paris')
+graph.addVertex("A")
+graph.addVertex("B")
+graph.addVertex("C")
+graph.addVertex("D")
+graph.addVertex("E")
+graph.addVertex("F")
 
-graph.addEdge('Tokyo', 'Rome')
-graph.addEdge('Tokyo', 'Dallas')
-graph.addEdge('Rome', 'Dallas')
-graph.addEdge('Rome', 'Paris')
+graph.addEdge("A","B")
+graph.addEdge("A","C")
+graph.addEdge("B","D")
+graph.addEdge("C","E")
+graph.addEdge("D","E")
+graph.addEdge("D","F")
+graph.addEdge("E","F")
 
-//graph.removeEdge('Rome', 'Paris')
-
-console.log(graph.adjacencyList); // { Tokyo: [ 'Rome', 'Dallas' ], Dallas: [ 'Tokyo', 'Rome' ], Rome: [ 'Tokyo', 'Dallas', 'Paris' ], Paris: [ 'Rome' ] }
-graph.removeVertex('Rome')
-console.log(graph.adjacencyList); // { Tokyo: [ 'Dallas' ], Dallas: [ 'Tokyo' ], Paris: [] }
+console.log(graph);
+console.log(graph.depthFirstSearchRecursive('A')); // [ 'A', 'B', 'D', 'E', 'C', 'F' ]
