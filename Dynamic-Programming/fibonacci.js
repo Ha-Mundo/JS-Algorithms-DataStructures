@@ -13,4 +13,18 @@ function fibBF(num) {
     return fibBF(num - 1) + fibBF(num - 2);
 }
 
+////////////////// Dynamic Programming Approach //////////////////////
+
+// Top-down approach - Memoization <-- Can run into stack overflow with large numbers
+// Time Complexity O(n)
+// Space Complexity O(n)
+function fibTD(num, memo = []) {
+    if (memo[num]) return memo[num];
+    if (num < 2) return num;
+
+    let res = fibTD(num - 1, memo) + fibTD(num - 2, memo);
+    memo[num] = res;
+    return res;
+}
+
 
