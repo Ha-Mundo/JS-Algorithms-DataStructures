@@ -7,6 +7,7 @@
  */
 
 // Brute Force
+
 // Time Complexity O(2^n) <-- This is Bad
 function fibBF(num) {
     if (num < 2) return num;
