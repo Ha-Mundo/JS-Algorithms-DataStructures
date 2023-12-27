@@ -12,10 +12,12 @@ function fibBF(num) {
     if (num < 2) return num;
     return fibBF(num - 1) + fibBF(num - 2);
 }
+console.log(fibBF(10)); // 55
 
 ////////////////// Dynamic Programming Approach //////////////////////
 
 // Top-down approach - Memoization <-- Can run into stack overflow with large numbers
+
 // Time Complexity O(n)
 // Space Complexity O(n)
 function fibTD(num, memo = []) {
@@ -26,5 +28,26 @@ function fibTD(num, memo = []) {
     memo[num] = res;
     return res;
 }
+
+console.log(fibTD(1000)); // 4.346655768693743e+208
+// console.log(fibTD(10000)); // RangeError: Maximum call stack size exceeded
+
+
+// Bottom-up approach - Tabulation
+
+// Time Complexity O(n)
+// Space Complexity O(1)
+function fibBU(num) {
+    if (num < 2) return num;
+    const fibNums = [0, 1, 1];
+
+    for (let i = 3; i <= num; i++) {
+      fibNums[i] = fibNums[i - 1] + fibNums[i - 2];
+    }
+    return fibNums[num]
+}
+
+console.log(fibBU(1000)); // 4.346655768693743e+208
+console.log(fibBU(10000)); // Infinity
 
 
