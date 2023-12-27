@@ -16,7 +16,7 @@ A problem is said to have optimal substructure if an optimal solution can be con
 
 - Shortest path in a graph
 
-## Memoization
+## Memoization: A Top Down Approach
 
 Storing the results of expensive function calls and returning the cached result when the same inputs occur again.
 
