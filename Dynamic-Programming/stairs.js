@@ -3,6 +3,12 @@
  Use Dynamic Programming approach.
  */
 
- // Brute Force
+// Brute Force
+
 // Time Complexity O(2^n)
-function stairsBF(num) {}
+function stairsBF(num) {
+    if(num < 3) return num
+    return stairsBF(num - 1) + stairsBF(num - 2)
+}
+
+console.log(stairsBF(4)); // 5
