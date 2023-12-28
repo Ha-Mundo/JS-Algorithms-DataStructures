@@ -28,5 +28,24 @@ function stairsTD(num, memo = []) {
     return memo[num]
 }
 
-console.log(stairsTD(4)); // 5
+console.log(stairsTD(5)); // 8
 
+// Bottom-up approach - Tabulation
+
+// Time Complexity O(n)
+// Space Complexity O(1)
+function stairsBU(num) {
+    if(num < 3) return num
+    let store = [1, 1]
+    let total
+
+    for(let i = 2; i <= num; i++) {
+        total = store[1] + store[0]
+        store[0] = store[1]
+        store[1] = total
+    }
+
+    return store[1]
+}
+
+console.log(stairsBU(7)); // 21
