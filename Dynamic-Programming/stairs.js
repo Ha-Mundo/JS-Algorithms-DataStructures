@@ -12,3 +12,21 @@ function stairsBF(num) {
 }
 
 console.log(stairsBF(4)); // 5
+
+////////////////// Dynamic Programming Approach //////////////////////
+
+// Top-down approach - Memoization
+
+// Time Complexity O(n)
+// Space Complexity O(n)
+function stairsTD(num, memo = []) {
+    if(memo[num]) return memo[num]
+    if(num < 3) return num
+
+    memo[num] = stairsTD(num - 1, memo) + stairsTD(num - 2, memo)
+
+    return memo[num]
+}
+
+console.log(stairsTD(4)); // 5
+
