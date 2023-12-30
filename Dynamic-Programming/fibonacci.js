@@ -34,7 +34,7 @@ console.log(fibTD(1000)); // 4.346655768693743e+208
 // console.log(fibTD(10000)); // RangeError: Maximum call stack size exceeded
 
 
-// Bottom-up approach - Tabulation
+// Bottom-up approach - Tabulation <-- Faster and better than the Top-Down approach cause it doesn't rely on recursion and takes less memory space.
 
 // Time Complexity O(n)
 // Space Complexity O(1)
