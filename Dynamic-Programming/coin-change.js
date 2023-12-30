@@ -4,6 +4,21 @@ Use Dynamic Programming approach.
 */
 
 // Brute Force
+
 // Time Complexity exponential
 // Space Complexity O(1)
-function coinChangeBF(denominations, value) {}
+function coinChangeBF(denominations, value) {
+    let index = denominations.length -1;
+  
+    function change(denominations, value, index) {
+      if(value < 0 || index < 0) return 0;
+      if(value === 0) return 1;
+  
+      return change(denominations, value - denominations[index], index) + change(denominations, value, index - 1);
+    }
+  
+    return change(denominations, value, index);
+  }
+  
+  console.log(coinChangeBF([1, 5, 10, 25], 50)); // 49
+  console.log(coinChangeBF([1, 5, 10, 25], 7)); // 2
