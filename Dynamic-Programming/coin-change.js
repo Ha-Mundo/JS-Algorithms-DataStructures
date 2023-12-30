@@ -53,3 +53,23 @@ function coinChangeTD(denominations, value) {
   }
 
 console.log(coinChangeTD([1, 5, 10, 25], 14000)); // 367633141
+
+// Bottom-up approach - Tabulation
+
+// Time Complexity Complexity O(value * denominations.length)
+// Space Complexity O(value)
+function coinChangeBU(denominations, value) {
+    const table = Array.from({ length: value + 1 }).fill(0);
+    table[0] = 1;
+    
+    for (let i = 0; i < denominations.length; i++) {
+        for (let j = denominations[i]; j <= value; j++) {
+            table[j] += table[j - denominations[i]];
+            
+      }
+    }
+  
+    return table[value];
+  }
+
+  console.log(coinChangeBU([1, 5, 10, 25], 14000)); // 367633141
